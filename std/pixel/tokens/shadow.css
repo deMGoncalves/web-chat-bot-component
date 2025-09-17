@@ -1,0 +1,6 @@
+:root {
+  --shadow-level-1: 0px 4px 8px -1px rgba(0, 0, 0, 0.1);
+  --shadow-level-2: 0px 8px 24px -1px rgba(0, 0, 0, 0.12);
+  --shadow-level-3: 0px 16px 32px -1px rgba(0, 0, 0, 0.12);
+  --shadow-level-4: 0px 16px 48px -1px rgba(0, 0, 0, 0.16);
+}
