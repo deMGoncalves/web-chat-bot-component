@@ -6,9 +6,10 @@ import logger from "@bot/std/logger";
 import { truthy } from "@bot/std/spark";
 import { component } from "./component";
 import { formData } from "./formData";
-import { sent } from "./interfaces";
+import { ignite, sent } from "./interfaces";
 import { prevent } from "./prevent";
 import { style } from "./style";
+import Pipe from "@bot/chat/pipe";
 
 @define("chat-input")
 @paint(component, style)
@@ -33,9 +34,9 @@ class Input extends Echo(HTMLElement) {
 
   @logger
   @on.submit("form", prevent, formData)
-  [sent](detail) {
-    const event = new CustomEvent("sent", { detail });
-    this.dispatchEvent(event);
+  async [sent](data) {
+    const detail = await Pipe[ignite]("ask", data);
+    this.dispatchEvent(new CustomEvent("sent", { detail }));
     return this;
   }
 }

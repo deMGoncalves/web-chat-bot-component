@@ -5,7 +5,7 @@ import logger from "@bot/std/logger";
 import { component } from "./component";
 import { style } from "./style";
 import { status } from "./status";
-import { activate, deactivate } from "./interfaces";
+import { activate, deactivate, notify } from "./interfaces";
 import { after, before } from "@bot/std/middleware";
 import on from "@bot/std/event";
 
@@ -44,6 +44,14 @@ class Chat extends Echo(HTMLElement) {
   @logger
   expand() {
     this.state = status.EXPANDED;
+    return this;
+  }
+
+  @on.sent("[input]")
+  @on.thinking("[agent]")
+  @on.responded("[agent]")
+  [notify]({ type, detail }) {
+    this.dispatchEvent(new CustomEvent(type, { detail }));
     return this;
   }
 

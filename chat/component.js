@@ -10,21 +10,21 @@ export const component = () => {
 
     <chat-display>
       <!-- dataflows que afetam o display -->
-      <chat-on value="chat-input/sent:method/push"></chat-on>
-      <chat-on value="chat-agent/thinking:attribute/waiting|always=true"></chat-on>
-      <chat-on value="chat-agent/responded:attribute/waiting|always=false"></chat-on>
-      <chat-on value="chat-agent/responded:method/push"></chat-on>
+      <chat-on value="input/sent:method/push"></chat-on>
+      <chat-on value="agent/thinking:attribute/waiting|always=true"></chat-on>
+      <chat-on value="agent/responded:attribute/waiting|always=false"></chat-on>
+      <chat-on value="agent/responded:method/push"></chat-on>
     </chat-display>
 
-    <chat-input>
+    <chat-input name="input">
       <!-- dataflows que afetam o input -->
-      <chat-on value="chat-agent/thinking:attribute/waiting|always=true"></chat-on>
-      <chat-on value="chat-agent/responded:attribute/waiting|always=false"></chat-on>
+      <chat-on value="agent/thinking:attribute/waiting|always=true"></chat-on>
+      <chat-on value="agent/responded:attribute/waiting|always=false"></chat-on>
     </chat-input>
 
-    <chat-agent>
+    <chat-agent name="agent">
       <!-- dataflows que afetam o agent -->
-      <chat-on value="chat-input/sent:method/ask"></chat-on>
+      <chat-on value="input/sent:method/ask"></chat-on>
     </chat-agent>
   `;
 };

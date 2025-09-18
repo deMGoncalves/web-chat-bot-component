@@ -23,5 +23,13 @@
 <body>
   <chat-bot state="opened"></chat-bot>
   <script type="module" src="./chat/index.js"></script>
+  <script type="module">
+    import { Pipe } from './chat/index.js';
+
+    Pipe.add('ask', (payload, next) => {
+      console.log('[ASK]', payload)
+      next(payload)
+    })
+  </script>
 </body>
 </html>

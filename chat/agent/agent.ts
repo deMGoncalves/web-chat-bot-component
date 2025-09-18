@@ -4,6 +4,8 @@ import logger from "@bot/std/logger";
 import { Headless } from "@bot/std/mixin";
 import { generateAnswer } from "./weblm.js";
 import AI from "./ai";
+import { ignite } from "./interfaces";
+import Pipe from "@bot/chat/pipe";
 
 @define("chat-agent")
 class Agent extends Headless(Echo(HTMLElement)) {
@@ -18,9 +20,8 @@ class Agent extends Headless(Echo(HTMLElement)) {
   async ask(token) {
     this.dispatchEvent(new CustomEvent("thinking", { detail: token }));
     const response = await this.#ai.ask(token?.message);
-    this.dispatchEvent(
-      new CustomEvent("responded", { detail: { message: response } }),
-    );
+    const detail = await Pipe[ignite]("respond", { message: response });
+    this.dispatchEvent(new CustomEvent("responded", { detail }));
     return this;
   }
 }

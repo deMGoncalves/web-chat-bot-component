@@ -8,3 +8,5 @@ import "./icon";
 import "./input";
 import "./on";
 import "./chat";
+
+export { default as Pipe } from "./pipe";

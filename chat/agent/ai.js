@@ -24,8 +24,8 @@ class AI {
         ],
       });
       return content;
-    } catch (error) {
-      return error.message;
+    } catch ({ message }) {
+      return message;
     }
   }
 
