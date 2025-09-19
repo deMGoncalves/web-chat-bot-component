@@ -18,10 +18,21 @@ class Agent extends Headless(Echo(HTMLElement)) {
 
   @logger
   async ask(token) {
-    this.dispatchEvent(new CustomEvent("thinking", { detail: token }));
+    {
+      const init = { bubbles: true, cancelable: true, detail: token };
+      const event = new CustomEvent("thinking", init);
+      this.dispatchEvent(event);
+    }
+
     const response = await this.#ai.ask(token?.message);
-    const detail = await Pipe[ignite]("respond", { message: response });
-    this.dispatchEvent(new CustomEvent("responded", { detail }));
+    const processed = await Pipe[ignite]("respond", { message: response });
+
+    {
+      const init = { bubbles: true, cancelable: true, detail: processed };
+      const event = new CustomEvent("responded", init);
+      this.dispatchEvent(event);
+    }
+
     return this;
   }
 }

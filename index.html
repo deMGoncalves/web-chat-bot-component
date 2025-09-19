@@ -27,13 +27,13 @@
     import { Pipe } from './chat/index.js';
 
     Pipe.add('ask', (payload, next) => {
-      console.log('[ASK]', payload);
-      next(payload);
+      const { message } = payload
+      next({ message: `[@ME] ${message} \n`});
     });
 
     Pipe.add('respond', (payload, next) => {
-      console.log('[RESPOND]', payload);
-      next(payload);
+      const { message } = payload
+      next({ message: `[@BOT] ${message} \n`});
     });
   </script>
   <script type="module">
