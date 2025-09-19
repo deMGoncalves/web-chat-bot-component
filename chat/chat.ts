@@ -8,6 +8,7 @@ import { status } from "./status";
 import { activate, deactivate, notify } from "./interfaces";
 import { after, before } from "@bot/std/middleware";
 import on from "@bot/std/event";
+import { stop } from "./stop";
 
 @define("chat-bot")
 @paint(component, style)
@@ -47,11 +48,13 @@ class Chat extends Echo(HTMLElement) {
     return this;
   }
 
-  @on.sent("[input]")
-  @on.thinking("[agent]")
-  @on.responded("[agent]")
+  @on.sent('[name="input"]', stop)
+  @on.thinking('[name="agent"]', stop)
+  @on.responded('[name="agent"]', stop)
   [notify]({ type, detail }) {
-    this.dispatchEvent(new CustomEvent(type, { detail }));
+    const init = { bubbles: true, cancelable: true, detail };
+    const event = new CustomEvent(type, init);
+    this.dispatchEvent(event);
     return this;
   }
 

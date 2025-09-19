@@ -36,7 +36,9 @@ class Input extends Echo(HTMLElement) {
   @on.submit("form", prevent, formData)
   async [sent](data) {
     const detail = await Pipe[ignite]("ask", data);
-    this.dispatchEvent(new CustomEvent("sent", { detail }));
+    const init = { bubbles: true, cancelable: true, detail };
+    const event = new CustomEvent("sent", init);
+    this.dispatchEvent(event);
     return this;
   }
 }

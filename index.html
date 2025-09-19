@@ -27,9 +27,20 @@
     import { Pipe } from './chat/index.js';
 
     Pipe.add('ask', (payload, next) => {
-      console.log('[ASK]', payload)
-      next(payload)
-    })
+      console.log('[ASK]', payload);
+      next(payload);
+    });
+
+    Pipe.add('respond', (payload, next) => {
+      console.log('[RESPOND]', payload);
+      next(payload);
+    });
+  </script>
+  <script type="module">
+    const chatBot = document.querySelector('chat-bot');
+    chatBot.addEventListener('sent', console.log);
+    chatBot.addEventListener('thinking', console.log);
+    chatBot.addEventListener('responded', console.log);
   </script>
 </body>
 </html>
