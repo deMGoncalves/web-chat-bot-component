@@ -4,12 +4,12 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   build: {
-    lib: {
-      entry: resolve(__dirname, "chat/index.js"),
-      fileName: "chat-bot",
-      formats: ["cjs", "es", "iife"],
-      name: "ChatBot",
-    },
+    // lib: {
+    //   entry: resolve(__dirname, "chat/index.js"),
+    //   fileName: "chat-bot",
+    //   formats: ["cjs", "es", "iife"],
+    //   name: "ChatBot",
+    // },
     minify: false,
     outDir: "dist",
     rollupOptions: {
