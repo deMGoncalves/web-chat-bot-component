@@ -1,19 +1,19 @@
-import { attributeChanged, define } from "@bot/std/directive";
-import { paint, retouch } from "@bot/std/dom";
-import Echo from "@bot/std/echo";
-import on from "@bot/std/event";
-import logger from "@bot/std/logger";
-import { truthy } from "@bot/std/spark";
+import Pipe from "chat/pipe";
+import { attributeChanged, define } from "std/directive";
+import { paint, repaint, retouch } from "std/dom";
+import Echo from "std/echo";
+import on from "std/event";
+import logger from "std/logger";
+import { truthy } from "std/spark";
 import { component } from "./component";
 import { formData } from "./formData";
 import { ignite, sent } from "./interfaces";
 import { prevent } from "./prevent";
 import { style } from "./style";
-import Pipe from "@bot/chat/pipe";
 
-@define("chat-input")
+@define("chat-bar")
 @paint(component, style)
-class Input extends Echo(HTMLElement) {
+class Bar extends Echo(HTMLElement) {
   #waiting;
 
   get waiting() {
@@ -34,8 +34,10 @@ class Input extends Echo(HTMLElement) {
 
   @logger
   @on.submit("form", prevent, formData)
+  @repaint
   async [sent](data) {
-    const detail = await Pipe[ignite]("ask", data);
+    const processed = await Pipe[ignite]("ask", data);
+    const detail = { ...processed, author: "user" };
     const init = { bubbles: true, cancelable: true, detail };
     const event = new CustomEvent("sent", init);
     this.dispatchEvent(event);
@@ -43,4 +45,4 @@ class Input extends Echo(HTMLElement) {
   }
 }
 
-export default Input;
+export default Bar;

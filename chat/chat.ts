@@ -1,14 +1,14 @@
-import { attributeChanged, define } from "@bot/std/directive";
-import { paint, retouch } from "@bot/std/dom";
-import Echo from "@bot/std/echo";
-import logger from "@bot/std/logger";
+import { attributeChanged, define } from "std/directive";
+import { paint, retouch } from "std/dom";
+import Echo from "std/echo";
+import on from "std/event";
+import logger from "std/logger";
+import { after, before } from "std/middleware";
 import { component } from "./component";
-import { style } from "./style";
-import { status } from "./status";
 import { activate, deactivate, notify } from "./interfaces";
-import { after, before } from "@bot/std/middleware";
-import on from "@bot/std/event";
+import { status } from "./status";
 import { stop } from "./stop";
+import { style } from "./style";
 
 @define("chat-bot")
 @paint(component, style)

@@ -25,8 +25,9 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@bot/chat": resolve(__dirname, "chat"),
-      "@bot/std": resolve(__dirname, "std"),
+      chat: resolve(__dirname, "chat"),
+      site: resolve(__dirname, "site"),
+      std: resolve(__dirname, "std"),
     },
   },
 });

@@ -1,11 +1,8 @@
-import "@bot/std/polyfill";
-import "@bot/std/pixel";
-
 import "./agent";
+import "./bar";
 import "./display";
 import "./header";
 import "./icon";
-import "./input";
 import "./on";
 import "./chat";
 

@@ -1,11 +1,10 @@
-import { define } from "@bot/std/directive";
-import Echo from "@bot/std/echo";
-import logger from "@bot/std/logger";
-import { Headless } from "@bot/std/mixin";
-import { generateAnswer } from "./weblm.js";
+import Pipe from "chat/pipe";
+import { define } from "std/directive";
+import Echo from "std/echo";
+import logger from "std/logger";
+import { Headless } from "std/mixin";
 import AI from "./ai";
 import { ignite } from "./interfaces";
-import Pipe from "@bot/chat/pipe";
 
 @define("chat-agent")
 class Agent extends Headless(Echo(HTMLElement)) {
@@ -28,7 +27,8 @@ class Agent extends Headless(Echo(HTMLElement)) {
     const processed = await Pipe[ignite]("respond", { message: response });
 
     {
-      const init = { bubbles: true, cancelable: true, detail: processed };
+      const detail = { ...processed, author: "bot" };
+      const init = { bubbles: true, cancelable: true, detail };
       const event = new CustomEvent("responded", init);
       this.dispatchEvent(event);
     }

@@ -1,4 +1,4 @@
-import { html } from "@bot/std/dom";
+import { html } from "std/dom";
 
 export const component = () => {
   return html`
@@ -16,11 +16,11 @@ export const component = () => {
       <chat-on value="agent/responded:method/push"></chat-on>
     </chat-display>
 
-    <chat-input name="input">
+    <chat-bar name="input">
       <!-- dataflows que afetam o input -->
       <chat-on value="agent/thinking:attribute/waiting|always=true"></chat-on>
       <chat-on value="agent/responded:attribute/waiting|always=false"></chat-on>
-    </chat-input>
+    </chat-bar>
 
     <chat-agent name="agent">
       <!-- dataflows que afetam o agent -->

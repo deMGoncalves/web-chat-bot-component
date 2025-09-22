@@ -20,27 +20,17 @@
     }
   </style>
 </head>
-<body>
-  <chat-bot state="opened"></chat-bot>
-  <script type="module" src="./chat/index.js"></script>
-  <script type="module">
-    import { Pipe } from './chat/index.js';
-
-    Pipe.add('ask', (payload, next) => {
-      const { message } = payload
-      next({ message: `[@ME] ${message} \n`});
-    });
-
-    Pipe.add('respond', (payload, next) => {
-      const { message } = payload
-      next({ message: `[@BOT] ${message} \n`});
-    });
-  </script>
-  <script type="module">
-    const chatBot = document.querySelector('chat-bot');
-    chatBot.addEventListener('sent', console.log);
-    chatBot.addEventListener('thinking', console.log);
-    chatBot.addEventListener('responded', console.log);
-  </script>
-</body>
+  <body>
+    <chat-bot on="laucher/click:method/open"></chat-bot>
+    <site-laucher name="laucher"></site-laucher>
+    
+    <script type="module" src="./index.js" async></script>
+    <script type="module" async>
+      import { Pipe } from "./index.js";
+      Pipe.add("ask", (data, next) => {
+        console.log(data);
+        next({ ...data, message: `@Yo: ${data.message}` });
+      });
+    </script>
+  </body>
 </html>

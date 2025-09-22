@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "std/*": ["std/*"],
+      "chat/*": ["chat/*"],
+      "site/*": ["site/*"]
+    }
   }
 }

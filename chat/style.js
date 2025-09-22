@@ -1,5 +1,4 @@
-import { css } from "@bot/std/dom";
-import background from "./background.png";
+import { css } from "std/dom";
 
 export const style = () => {
   return css`
@@ -14,13 +13,20 @@ export const style = () => {
       display: none;
       flex-direction: column;
       height: 620px;
+      max-height: 80svh;
       position: fixed;
       right: var(--spacing-xxs);
       transition: all 0.2s ease-out;
       width: 340px;
+      z-index: 1001;
 
       chat-icon {
+        color: var(--color-primary);
         cursor: pointer;
+      }
+
+      chat-icon:hover {
+        color: var(--color-primary-dark);
       }
     }
 

@@ -1,4 +1,4 @@
-import { css } from "@bot/std/dom";
+import { css } from "std/dom";
 
 export const style = (icon) =>
   css`

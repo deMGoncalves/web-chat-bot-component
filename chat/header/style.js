@@ -1,4 +1,4 @@
-import { css } from "@bot/std/dom";
+import { css } from "std/dom";
 
 export const style = () => {
   return css`
@@ -14,11 +14,18 @@ export const style = () => {
       justify-content: space-between;
       padding: var(--spacing_inset-xs);
 
-      h1 {
-        color: var(--color-master-darkest);
-        font-family: var(--font-family-highlight);
-        font-size: var(--font-size-sx);
-        font-weight: var(--font-weight-regular);
+      heading {
+        align-items: center;
+        color: var(--color-primary);
+        display: flex;
+        gap: var(--spacing_inset-nano);
+
+        h1 {
+          color: var(--color-master-darkest);
+          font-family: var(--font-family-highlight);
+          font-size: var(--font-size-sx);
+          font-weight: var(--font-weight-regular);
+        }
       }
 
       actions {

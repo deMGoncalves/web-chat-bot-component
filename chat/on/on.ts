@@ -1,5 +1,5 @@
-import { attributeChanged, connected, define } from "@bot/std/directive";
-import { Headless } from "@bot/std/mixin";
+import { attributeChanged, connected, define } from "std/directive";
+import { Headless } from "std/mixin";
 import { connectArc, setter } from "./interfaces";
 
 @define("chat-on")

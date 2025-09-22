@@ -1,9 +1,9 @@
-import { html } from "@bot/std/dom";
+import { html } from "std/dom";
 
 export const component = () => {
   return html`
     <form>
-      <textarea name="message" placeholder="Send a message..."></textarea>
+      <chat-input name="message"></chat-input>
       <button>
         <chat-icon use="arrow_upward" size="sm"></chat-icon>
       </button>

@@ -1,5 +1,5 @@
-import { attributeChanged, define } from "@bot/std/directive";
-import { paint, repaint, retouch } from "@bot/std/dom";
+import { attributeChanged, define } from "std/directive";
+import { paint, repaint, retouch } from "std/dom";
 import { component } from "./component";
 import { style } from "./style";
 
