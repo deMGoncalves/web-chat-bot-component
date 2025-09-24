@@ -1,0 +1,8 @@
+# In: ~/.gemini/commands/lint.toml
+# This command will be invoked via: /lint
+
+description = "Executa o linter e formatador Biome, aplicando as correções automaticamente."
+
+prompt = """
+bunx @biomejs/biome check --write .
+"""

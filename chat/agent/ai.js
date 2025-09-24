@@ -2,8 +2,8 @@ import {
   CreateMLCEngine,
   prebuiltAppConfig as appConfig,
 } from "@mlc-ai/web-llm";
-import System from "./system";
 import Model from "./model";
+import System from "./system";
 
 class AI {
   static #engine;
