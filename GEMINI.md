@@ -65,6 +65,8 @@ Para manter a consistência, a legibilidade e a qualidade do projeto, seguimos a
 
 Para manter a consistência e clareza do domínio, todo o código (nomes de classes, funções, variáveis, etc.) deve aderir à linguagem ubíqua definida pelo projeto, contexto ou módulo.
 
+-   **Proibição de Notação Húngara:** É estritamente proibido o uso de qualquer forma de notação húngara ou prefixos/sufixos que indiquem o tipo ou a natureza de uma variável (ex: `sNome`, `iIdade`, `ConverterMock`, `personFactory`). Os nomes devem refletir o seu significado no domínio, e não a sua implementação técnica.
+
 ### 4.2. Paradigma de Programação (OOP First)
 
 -   **Regra:** O paradigma de programação padrão do projeto é **Programação Orientada a Objetos (OOP)**. Todo novo código deve, preferencialmente, ser implementado utilizando classes.

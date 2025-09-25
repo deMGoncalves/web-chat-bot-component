@@ -10,7 +10,8 @@ Esta biblioteca é a principal ferramenta para implementar os padrões de **Prog
 
 A `@std` é organizada em módulos, cada um com uma responsabilidade clara:
 
--   **`artifact`**: Utilitários para manipulação de artefatos de dados complexos. Atualmente, contém um wrapper para a biblioteca `showdown`, facilitando a conversão de Markdown para HTML.
+-   **`artifact`**: Atua como uma **Camada Anticorrupção (ACL)**, encapsulando bibliotecas de terceiros para proteger o projeto de acoplamento direto com dependências externas.
+    -   *Veja mais em: `@./artifact/README.md`*
 
 -   **`directive`**: Um conjunto de decoradores que simplificam o ciclo de vida de Web Components e a definição de custom elements. Inclui `@define`, `@connected`, `@attributeChanged`, etc.
 
