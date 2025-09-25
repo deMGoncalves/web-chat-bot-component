@@ -3,4 +3,4 @@
  * @module @std/directive/attributeChanged
  */
 
-export { attributeChanged } from "./directive.js";
+export { attributeChanged } from "./attributeChanged.js";

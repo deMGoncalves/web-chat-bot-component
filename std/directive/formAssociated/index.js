@@ -3,4 +3,4 @@
  * @module @std/directive/formAssociated
  */
 
-export { formAssociated } from "./directive.js";
+export { formAssociated } from "./formAssociated.js";

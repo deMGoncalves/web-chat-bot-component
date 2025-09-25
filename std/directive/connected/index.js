@@ -3,4 +3,4 @@
  * @module @std/directive/connected
  */
 
-export { connected } from "./directive.js";
+export { connected } from "./connected.js";

@@ -3,4 +3,4 @@
  * @module @std/directive/define
  */
 
-export { define } from "./directive.js";
+export { define } from "./define.js";

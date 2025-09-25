@@ -3,4 +3,4 @@
  * @module @std/directive/formReset
  */
 
-export { formReset } from "./directive.js";
+export { formReset } from "./formReset.js";
