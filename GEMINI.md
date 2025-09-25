@@ -63,6 +63,7 @@ Para manter a consistência e a qualidade do projeto, seguimos as convenções a
         6.  Métodos Estáticos
         7.  Bloco de inicialização estáticos
     -   **Ordem Alfabética:** Dentro de cada grupo (exceto o construtor), os itens devem ser declarados em ordem alfabética.
+-   **Complexidade Ciclomática:** Para garantir funções simples e de responsabilidade única, a complexidade de getters, setters, métodos, construtores e funções não deve ser superior a 1. Isso significa que não devem conter ramificações (ex: `if`, `for`, `switch`, `?`).
 
 ### Mensagens de Commit
 
