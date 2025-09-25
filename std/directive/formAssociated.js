@@ -1,6 +1,18 @@
-import execute from "./execute";
+/**
+ * @fileoverview Hook para o ciclo de vida formAssociatedCallback.
+ * @module @std/directive/formAssociated
+ */
 
+import { execute } from "./execute.js";
+
+/**
+ * Anexa um método ao ciclo de vida `formAssociatedCallback` de um web component.
+ *
+ * @param {Object} target - O protótipo da classe do web component.
+ * @param {string} method - O nome do método a ser executado.
+ * @returns {void}
+ */
 const formAssociated = (target, method) =>
   execute(method).on(target).after("formAssociatedCallback");
 
-export default formAssociated;
+export { formAssociated };

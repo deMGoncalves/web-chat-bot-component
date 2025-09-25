@@ -1,9 +1,15 @@
-export { default as adopted } from "./adopted";
-export { default as attributeChanged } from "./attributeChanged";
-export { default as connected } from "./connected";
-export { default as disconnected } from "./disconnected";
-export { default as define } from "./define";
-export { default as formAssociated } from "./formAssociated";
-export { default as formDisabled } from "./formDisabled";
-export { default as formReset } from "./formReset";
-export { default as formStateRestore } from "./formStateRestore";
+/**
+ * @fileoverview Ponto de entrada do módulo de diretivas.
+ * @module @std/directive
+ */
+
+export { adopted } from "./adopted.js";
+export { attributeChanged } from "./attributeChanged.js";
+export { connected } from "./connected.js";
+export { define } from "./define.js";
+export { disconnected } from "./disconnected.js";
+export { execute } from "./execute.js";
+export { formAssociated } from "./formAssociated.js";
+export { formDisabled } from "./formDisabled.js";
+export { formReset } from "./formReset.js";
+export { formStateRestore } from "./formStateRestore.js";

@@ -1,3 +1,16 @@
+/**
+ * @fileoverview Hook para o ciclo de vida attributeChangedCallback.
+ * @module @std/directive/attributeChanged
+ */
+
+/**
+ * Observa mudanças em um atributo e atualiza uma propriedade da classe com o novo valor,
+ * opcionalmente aplicando uma sequência de funções de filtro.
+ *
+ * @param {string} attribute - O nome do atributo a ser observado.
+ * @param {...Function} filters - Uma sequência de funções para processar o valor do atributo.
+ * @returns {Function} - Um decorador que pode ser aplicado a uma propriedade de classe.
+ */
 const attributeChanged =
   (attribute, ...filters) =>
   (target, property) => {
@@ -18,4 +31,4 @@ const attributeChanged =
     );
   };
 
-export default attributeChanged;
+export { attributeChanged };
