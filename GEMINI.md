@@ -124,6 +124,7 @@ Para garantir funções simples e de responsabilidade única, a complexidade de 
 -   **Uso de Mocks:** Utilizar mocks para simular dependências e verificar se os métodos corretos são chamados com os parâmetros esperados. O objetivo é garantir que a "conversa" entre os objetos está acontecendo conforme o design.
 -   **Não Testar Terceiros:** Nunca teste a implementação interna de uma biblioteca de terceiros. O foco é garantir que *nosso código* chama a biblioteca corretamente. A funcionalidade da biblioteca em si é responsabilidade do seu mantenedor.
 -   **Validar o Processo, Não o Resultado:** Os testes devem garantir a corretude do processo (o "como"), não apenas o resultado final (o "o quê").
+-   **Idioma dos Testes:** Todos os textos em arquivos de teste, incluindo os blocos `describe` e `it` e comentários, DEVEM ser escritos em Português (Brasil).
 
 ### 4.10. Documentação com JSDoc
 
@@ -198,6 +199,12 @@ Os protocolos a seguir governam o comportamento do agente de IA ao interagir com
 -   **Gatilho:** Após a conclusão bem-sucedida de uma modificação de arquivo (`replace`, `write_file`, etc.) autorizada pelo usuário.
 -   **Ação:** O agente DEVE iniciar imediatamente o processo de commit para a alteração realizada.
 -   **Comportamento:** O agente irá gerar uma mensagem de commit concisa e compatível com as convenções do projeto, e executará o commit sem solicitar uma segunda confirmação. A aprovação da modificação do arquivo implica a aprovação do commit subsequente.
+
+### 5.6. <PROTOCOL:LANGUAGE>
+
+-   **Gatilho:** Interação com o usuário.
+-   **Ação:** O agente DEVE utilizar exclusivamente o Português (Brasil) em todas as comunicações com o usuário.
+-   **Comportamento:** Todas as respostas, perguntas, explicações e qualquer outro texto direcionado ao usuário devem ser formulados em Português (Brasil), mantendo um tom profissional e claro.
 
 ## 6. Configuração do Ambiente
 

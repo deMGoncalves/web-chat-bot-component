@@ -1,34 +1,46 @@
-import { describe, expect, it } from "vitest";
+// Importa os mocks do mock manual. O Vitest redireciona isso para `__mocks__/showdown.js`
+import { Converter, makeHtml } from "showdown";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { Markdown } from "./markdown.js";
 
+// Informa ao Vitest para usar o mock manual em __mocks__/showdown.js
+vi.mock("showdown");
+
 describe("Markdown", () => {
-  it("should render bold text correctly", () => {
-    const text = "**bold text**";
-    const expectedHtml = "<p><strong>bold text</strong></p>";
-    expect(Markdown.render(text)).toBe(expectedHtml);
+  // Testa a inicialização estática uma vez
+  describe("Inicialização", () => {
+    it("deve instanciar o Converter com as opções corretas na carga do módulo", () => {
+      const expectedOptions = {
+        tables: true,
+        simplifiedAutoLink: true,
+        strikethrough: true,
+        tasklists: true,
+        sanitize: true,
+        openLinksInNewWindow: true,
+      };
+      // O bloco estático é executado quando o módulo é importado, então o mock já deve ter sido chamado.
+      expect(Converter).toHaveBeenCalledWith(expectedOptions);
+      expect(Converter).toHaveBeenCalledTimes(1);
+    });
   });
 
-  it("should render a table correctly", () => {
-    const text = `
-| Header 1 | Header 2 |
-| -------- | -------- |
-| Cell 1   | Cell 2   |
-`;
-    const expectedHtml =
-      "<table><thead><tr><th>Header 1</th><th>Header 2</th></tr></thead><tbody><tr><td>Cell 1</td><td>Cell 2</td></tr></tbody></table>";
-    expect(Markdown.render(text).replace(/\n/g, "")).toBe(expectedHtml);
-  });
+  // Testa o método render
+  describe("render", () => {
+    beforeEach(() => {
+      makeHtml.mockClear();
+    });
 
-  it("should open links in a new window", () => {
-    const text = "[Google](https://google.com)";
-    const expectedHtml =
-      '<p><a href="https://google.com" rel="noopener noreferrer" target="_blank">Google</a></p>';
-    expect(Markdown.render(text)).toBe(expectedHtml);
-  });
+    it("deve chamar o método makeHtml do conversor com o texto fornecido", () => {
+      const text = "Um texto markdown";
+      Markdown.render(text);
+      expect(makeHtml).toHaveBeenCalledWith(text);
+      expect(makeHtml).toHaveBeenCalledTimes(1);
+    });
 
-  it("should handle an empty string", () => {
-    const text = "";
-    const expectedHtml = "";
-    expect(Markdown.render(text)).toBe(expectedHtml);
+    it("deve chamar makeHtml com uma string vazia quando nenhum texto é fornecido", () => {
+      Markdown.render();
+      expect(makeHtml).toHaveBeenCalledWith("");
+      expect(makeHtml).toHaveBeenCalledTimes(1);
+    });
   });
 });

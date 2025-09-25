@@ -4,5 +4,5 @@
 description = "Roda a suíte de testes do projeto com relatório de cobertura."
 
 prompt = """
-bun run test --coverage
+bun run test
 """
