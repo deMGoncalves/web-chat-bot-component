@@ -26,20 +26,27 @@ A reatividade do sistema emerge da sinergia desses padrões. Quando o estado de 
 
 Esse ciclo reativo é conectado ao fluxo de dados global pelo componente `<chat-on>`, que atua como o "controle de hipermídia", ligando os eventos do barramento às ações dos componentes de forma declarativa, diretamente no HTML.
 
-## Arquivos Chave
+## Contexto
 
-@./std/artifact/README.md
-@./std/directive/README.md
-@./std/dom/README.md
-@./std/echo/README.md
-@./std/event/README.md
-@./std/logger/README.md
-@./std/middleware/README.md
-@./std/mixin/README.md
-@./std/pixel/README.md
-@./std/polyfill/README.md
-@./std/result/README.md
-@./std/spark/README.md
+O projeto é organizado em três contextos principais, cada um com sua própria responsabilidade e escopo.
+
+### @chat
+
+Este é o coração do projeto, onde todos os Web Components que formam a interface do chat são definidos. Inclui a lógica para a renderização de mensagens, a interação com o modelo de IA e o gerenciamento do estado do chat.
+
+-   Veja mais em: `@./chat/README.md`
+
+### @site
+
+Este contexto contém os componentes responsáveis por "lançar" e integrar o chat em uma página web. Atualmente, inclui o `<site-laucher>`, o botão que inicia a interação do usuário.
+
+-   Veja mais em: `@./site/README.md`
+
+### @std
+
+A nossa biblioteca padrão interna. É um conjunto de módulos e utilitários reutilizáveis que fornecem a base para a arquitetura do projeto, incluindo decoradores, manipulação do DOM, sistema de eventos, tokens de design (pixel) e muito mais.
+
+-   Veja mais em: `@./std/README.md`
 
 ## Instruções de Configuração
 
