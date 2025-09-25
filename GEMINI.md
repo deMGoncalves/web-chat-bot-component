@@ -49,6 +49,7 @@ O projeto é dividido em três contextos principais, cada um com sua própria re
 
 Cada componente reside em seu próprio diretório e geralmente segue o padrão:
 
+-   `README.md`: Documentação explicando o propósito e o uso do componente.
 -   `component.js`: Define a classe do Web Component.
 -   `style.js`: Contém o CSS do componente.
 -   `index.js`: Ponto de entrada que exporta o componente.
@@ -64,13 +65,21 @@ Para manter a consistência, a legibilidade e a qualidade do projeto, seguimos a
 
 Para manter a consistência e clareza do domínio, todo o código (nomes de classes, funções, variáveis, etc.) deve aderir à linguagem ubíqua definida pelo projeto, contexto ou módulo.
 
-### 4.2. Formatação e Linting
+### 4.2. Paradigma de Programação (OOP First)
+
+-   **Regra:** O paradigma de programação padrão do projeto é **Programação Orientada a Objetos (OOP)**. Todo novo código deve, preferencialmente, ser implementado utilizando classes.
+-   **Justificativa:** A OOP promove encapsulamento e estrutura, alinhando-se à arquitetura principal do projeto baseada em Web Components e facilitando a manutenção e escalabilidade.
+-   **Exceções:** A abordagem funcional (funções puras) é aceitável em contextos onde a simplicidade é evidente e a unidade tem uma única responsabilidade clara. Exemplos incluem:
+    -   Definições de componentes de UI simples e sem estado (ex: `style.js`).
+    -   Funções utilitárias puras (ex: os módulos em `@std/spark`).
+
+### 4.3. Formatação e Linting
 
 -   **Ferramenta:** Utilizamos o [Biome.js](https://biomejs.dev/) para formatação e linting.
 -   **Aplicação:** As regras são verificadas automaticamente antes de cada commit através do `lint-staged` e `husky`.
 -   **Comando:** É recomendado rodar `bunx @biomejs/biome check --write .` antes de commitar.
 
-### 4.3. Organização de Código
+### 4.4. Organização de Código
 
 -   **Ordem de Agrupamento em Classes:**
     1.  Membros (propriedades)
@@ -83,11 +92,18 @@ Para manter a consistência e clareza do domínio, todo o código (nomes de clas
 -   **Ordem Alfabética em Classes:** Dentro de cada grupo (exceto o construtor), os itens devem ser declarados em ordem alfabética.
 -   **Ordem Alfabética no CSS:** As propriedades CSS dentro de cada seletor devem ser declaradas em ordem alfabética.
 
-### 4.4. Complexidade Ciclomática
+### 4.5. Convenções de Export
+
+-   **Preferência:** A convenção padrão é o uso de **exportações nomeadas** (`export { ... }`).
+-   **Exceção para `index.js`:** O uso de `export default` é permitido **apenas** no arquivo `index.js` de um módulo, e somente quando este agrega múltiplos exports.
+-   **Hierarquia no `index.js`:** Ao usar `export default` no `index.js`, ele deve representar a exportação principal do módulo. As demais exportações devem ser nomeadas e consideradas secundárias.
+-   **Export Único:** Se um módulo (`index.js`) expõe apenas um item, ele deve ser exportado de forma nomeada.
+
+### 4.6. Complexidade Ciclomática
 
 Para garantir funções simples e de responsabilidade única, a complexidade de getters, setters, métodos, construtores e funções não deve ser superior a 1. Isso significa que não devem conter ramificações (ex: `if`, `for`, `switch`, `?`).
 
-### 4.5. Mensagens de Commit
+### 4.7. Mensagens de Commit
 
 -   **Padrão:** Adotamos o [Conventional Commits](https://www.conventionalcommits.org/).
 -   **Formato:** `<tipo>(<escopo>): <descrição>`
@@ -96,6 +112,38 @@ Para garantir funções simples e de responsabilidade única, a complexidade de 
 -   **Regras:**
     -   O título do commit (`<descrição>`) deve ser escrito em letras minúsculas.
     -   A soma do título e do corpo do commit não deve exceder 100 caracteres.
+
+### 4.8. Idioma da Documentação
+
+-   **Idioma:** Toda a documentação do projeto, incluindo JSDoc, comentários de código e arquivos `README.md`, DEVE ser escrita em Português (Brasil).
+-   **Consistência:** Manter a consistência terminológica em toda a documentação, alinhada à Linguagem Ubíqua do projeto.
+
+### 4.9. Filosofia de Testes
+
+-   **Foco no Fluxo:** Os testes devem se concentrar em validar o fluxo de chamadas e interações entre diferentes unidades, em vez de simplesmente verificar a correspondência de valores de entrada e saída.
+-   **Uso de Mocks:** Utilizar mocks para simular dependências e verificar se os métodos corretos são chamados com os parâmetros esperados. O objetivo é garantir que a "conversa" entre os objetos está acontecendo conforme o design.
+-   **Não Testar Terceiros:** Nunca teste a implementação interna de uma biblioteca de terceiros. O foco é garantir que *nosso código* chama a biblioteca corretamente. A funcionalidade da biblioteca em si é responsabilidade do seu mantenedor.
+-   **Validar o Processo, Não o Resultado:** Os testes devem garantir a corretude do processo (o "como"), não apenas o resultado final (o "o quê").
+
+### 4.10. Documentação com JSDoc
+
+-   **Obrigatoriedade:** Todo o código (`.js`, `.ts`) DEVE ser documentado com JSDoc. Isso se aplica a classes, métodos, funções, propriedades e módulos.
+-   **Marcações Padrão:** Para manter a consistência, utilize as seguintes marcações:
+    -   `@fileoverview`: Descrição do propósito do arquivo, no topo do mesmo.
+    -   `@module`: Nome ou caminho do módulo (ex: `@std/dom/paint`).
+    -   `@class`: Descrição da classe.
+    -   `@function`: Descrição de uma função standalone.
+    -   `@param {type} name - Descrição.`: Para parâmetros de funções/métodos.
+    -   `@returns {type} - Descrição.`: Para valores de retorno.
+    -   `@type {type}`: Para tipar variáveis ou propriedades.
+    -   `@private`, `@public`: Para indicar a visibilidade (evitar `@protected`).
+    -   `@static`: Para membros estáticos.
+    -   `@example`: Bloco de código demonstrando o uso da função ou classe.
+
+### 4.11. Princípio da Unidade Única
+
+-   **Regra:** Cada arquivo (`.js` ou `.ts`) DEVE definir apenas uma única unidade construtiva: ou uma classe ou uma função. Não são permitidas múltiplas classes, múltiplas funções, ou a combinação de ambos no mesmo arquivo.
+-   **Justificativa:** Esta regra estrita garante que cada arquivo tenha uma responsabilidade única, máxima coesão e o mais baixo acoplamento, tornando o código extremamente simples, direto e fácil de manter e testar.
 
 ## 5. Instruções para o Agente de IA (Protocolos)
 
@@ -137,8 +185,13 @@ Os protocolos a seguir governam o comportamento do agente de IA ao interagir com
     1.  **Execução Fiel:** Seguir estritamente os passos do plano aprovado.
     2.  **Uso Preciso das Ferramentas:** Usar `replace` com contexto amplo, `write_file` para novos arquivos, e sempre com caminhos absolutos.
     3.  **Atomicidade:** Realizar alterações em passos pequenos e atômicos.
-    4.  **Verificação Pós-Implementação:** Executar os comandos de verificação (testes, linter) definidos no plano.
-    5.  **Protocolo de Micro-Commit:** Seguir o `<PROTOCOL:MICRO_COMMIT>` após cada modificação bem-sucedida.
+    4.  **Ciclo de Refinamento Pós-Alteração:** Após cada modificação de código, o agente DEVE executar um ciclo de revisão completo para garantir a consistência do projeto:
+        -   **JSDoc:** Revisar e atualizar toda a documentação JSDoc impactada.
+        -   **READMEs:** Atualizar os arquivos `README.md` relevantes.
+        -   **Testes:** Ajustar os testes para refletir as alterações.
+        -   **Linguagem Ubíqua:** Garantir que todos os identificadores (variáveis, funções, classes) estão alinhados com a linguagem do domínio.
+    5.  **Verificação Pós-Implementação:** Executar os comandos de verificação (testes, linter) definidos no plano.
+    6.  **Protocolo de Micro-Commit:** Seguir o `<PROTOCOL:MICRO_COMMIT>` após cada modificação bem-sucedida.
 
 ### 5.5. <PROTOCOL:MICRO_COMMIT>
 

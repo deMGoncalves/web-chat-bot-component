@@ -1,1 +1,1 @@
-export { default as Markdown } from "./markdown";
+export * from "./markdown";
