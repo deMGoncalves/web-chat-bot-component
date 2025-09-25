@@ -128,3 +128,9 @@ Para manter a legibilidade e a previsibilidade do código, as classes devem segu
 ### <PROTOCOL:IMPLEMENT>;
 
 (Instruções de como a IA deve implementar mudanças no código.)
+
+### <PROTOCOL:MICRO_COMMIT>
+
+-   **Gatilho:** Após a conclusão bem-sucedida de qualquer ferramenta que modifique o sistema de arquivos (`replace`, `write_file`, etc.) que tenha sido previamente autorizada pelo usuário.
+-   **Ação:** O agente DEVE iniciar imediatamente o processo de commit para a alteração realizada.
+-   **Comportamento:** O agente irá gerar uma mensagem de commit concisa e compatível com as convenções do projeto, e executará o commit sem solicitar uma segunda confirmação. A aprovação da modificação do arquivo implica a aprovação do commit subsequente. O agente informará o sucesso da operação de commit após a sua conclusão.
