@@ -154,6 +154,14 @@ Para garantir funções simples e de responsabilidade única, a complexidade de 
 -   **Conectividade Total:** Todos os arquivos `README.md` dentro do projeto devem ser alcançáveis a partir de `GEMINI.md`, seguindo as referências no formato `@./path/to/readme.md`.
 -   **Justificativa:** Esta regra garante que toda a documentação seja detectável e forme um grafo conectado, permitindo que qualquer desenvolvedor (ou o agente de IA) navegue e compreenda a estrutura do projeto de forma hierárquica e completa. Nenhum `README.md` deve ficar órfão.
 
+### 4.13. Convenções de Nomenclatura e Importação
+
+-   **Nomenclatura de Arquivos de Módulo/Componente:** O arquivo principal de um módulo ou componente DEVE ter o mesmo nome da pasta que o contém. O arquivo de teste correspondente DEVE seguir a mesma convenção.
+    -   *Exemplo:* Para o módulo `foo`, a estrutura seria `foo/foo.js` e `foo/foo.test.ts`.
+-   **Importação de Módulos JavaScript/TypeScript:** Ao importar módulos JavaScript ou TypeScript, a extensão do arquivo NÃO DEVE ser incluída. O sistema de módulos resolverá a extensão automaticamente.
+    -   *Exemplo:* `import { meuModulo } from './meuModulo'` (correto)
+    -   *Exemplo:* `import { meuModulo } from './meuModulo.js'` (incorreto)
+
 ## 5. Instruções para o Agente de IA (Protocolos)
 
 Os protocolos a seguir governam o comportamento do agente de IA ao interagir com o projeto.
