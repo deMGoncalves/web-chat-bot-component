@@ -1,4 +1,4 @@
-import { define } from "./directive.js";
+import { define } from "./define";
 
 describe("define", () => {
   it("deve definir um custom element", () => {

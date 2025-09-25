@@ -3,7 +3,7 @@
  * @module @std/directive/formDisabled
  */
 
-import { execute } from "./execute.js";
+import { execute } from "../execute";
 
 /**
  * Anexa um método ao ciclo de vida `formDisabledCallback` de um web component.

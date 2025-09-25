@@ -3,7 +3,7 @@
  * @module @std/directive/formReset
  */
 
-import { execute } from "./execute.js";
+import { execute } from "./execute";
 
 /**
  * Anexa um método ao ciclo de vida `formResetCallback` de um web component.

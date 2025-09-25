@@ -3,7 +3,7 @@
  * @module @std/directive/formAssociated
  */
 
-import { execute } from "./execute.js";
+import { execute } from "./execute";
 
 /**
  * Anexa um método ao ciclo de vida `formAssociatedCallback` de um web component.

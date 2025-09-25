@@ -1,4 +1,4 @@
-import { formStateRestore } from "./directive.js";
+import { formStateRestore } from "./formStateRestore";
 
 describe("formStateRestore", () => {
   it("deve anexar um método ao ciclo de vida formStateRestoreCallback", () => {

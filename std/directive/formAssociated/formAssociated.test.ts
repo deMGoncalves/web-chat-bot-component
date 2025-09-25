@@ -1,4 +1,4 @@
-import { formAssociated } from "./directive.js";
+import { formAssociated } from "./formAssociated";
 
 describe("formAssociated", () => {
   it("deve anexar um método ao ciclo de vida formAssociatedCallback", () => {

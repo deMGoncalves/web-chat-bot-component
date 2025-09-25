@@ -3,7 +3,7 @@
  * @module @std/directive/disconnected
  */
 
-import { execute } from "./execute.js";
+import { execute } from "../execute";
 
 /**
  * Anexa um método ao ciclo de vida `disconnectedCallback` de um web component.

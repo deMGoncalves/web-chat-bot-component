@@ -1,4 +1,4 @@
-import { attributeChanged } from "./directive.js";
+import { attributeChanged } from "./attributeChanged";
 
 describe("attributeChanged", () => {
   it("deve observar um atributo e atualizar a propriedade", () => {

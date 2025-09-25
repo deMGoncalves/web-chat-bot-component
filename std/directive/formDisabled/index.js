@@ -3,4 +3,4 @@
  * @module @std/directive/formDisabled
  */
 
-export { formDisabled } from "./formDisabled.js";
+export { formDisabled } from "./formDisabled";

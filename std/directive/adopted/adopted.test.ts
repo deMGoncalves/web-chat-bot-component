@@ -1,4 +1,4 @@
-import { adopted } from "./directive.js";
+import { adopted } from "./adopted";
 
 describe("adopted", () => {
   it("deve anexar um método ao ciclo de vida adoptedCallback", () => {

@@ -3,4 +3,4 @@
  * @module @std/directive/formStateRestore
  */
 
-export { formStateRestore } from "./formStateRestore.js";
+export { formStateRestore } from "./formStateRestore";

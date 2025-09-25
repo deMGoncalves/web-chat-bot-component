@@ -1,4 +1,4 @@
-import { connected } from "./directive.js";
+import { connected } from "./connected";
 
 describe("connected", () => {
   it("deve anexar um método ao ciclo de vida connectedCallback", () => {
