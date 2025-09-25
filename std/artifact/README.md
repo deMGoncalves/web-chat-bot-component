@@ -10,3 +10,5 @@ Ao criar um "artefato" para cada biblioteca, garantimos que o projeto interaja a
 
 -   **`@std/artifact/markdown`**: Encapsula a biblioteca `showdown`, fornecendo uma interface única e pré-configurada para a conversão de Markdown para HTML.
     -   *Veja mais em: `@./markdown/README.md`*
+-   **`@std/artifact/webllm`**: Atua como uma Camada Anticorrupção (ACL) para a biblioteca `@mlc-ai/web-llm`, abstraindo a inicialização e o uso do motor de IA.
+    -   *Veja mais em: `@./webllm/README.md`*
