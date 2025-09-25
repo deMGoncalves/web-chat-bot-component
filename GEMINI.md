@@ -1,6 +1,6 @@
 # Arquivo de Configuração Gemini
 
-Este arquivo fornece contexto, convenções e protocolos para a IA Gemini, garantindo consistência e qualidade no desenvolvimento do projeto.
+Este arquivo fornece contexto, convenções e protocolos para a IA Gemini, garantindo consistência e qualidade no desenvolvimento do projeto. Para uma visão geral do produto, consulte o `@./README.md`.
 
 ## 1. Visão Geral do Projeto
 
@@ -147,6 +147,12 @@ Para garantir funções simples e de responsabilidade única, a complexidade de 
 
 -   **Regra:** Cada arquivo (`.js` ou `.ts`) DEVE definir apenas uma única unidade construtiva: ou uma classe ou uma função. Não são permitidas múltiplas classes, múltiplas funções, ou a combinação de ambos no mesmo arquivo.
 -   **Justificativa:** Esta regra estrita garante que cada arquivo tenha uma responsabilidade única, máxima coesão e o mais baixo acoplamento, tornando o código extremamente simples, direto e fácil de manter e testar.
+
+### 4.12. Grafo de Documentação (`README.md`)
+
+-   **Ponto de Entrada Único:** O arquivo `GEMINI.md` é o ponto de entrada para toda a documentação do projeto.
+-   **Conectividade Total:** Todos os arquivos `README.md` dentro do projeto devem ser alcançáveis a partir de `GEMINI.md`, seguindo as referências no formato `@./path/to/readme.md`.
+-   **Justificativa:** Esta regra garante que toda a documentação seja detectável e forme um grafo conectado, permitindo que qualquer desenvolvedor (ou o agente de IA) navegue e compreenda a estrutura do projeto de forma hierárquica e completa. Nenhum `README.md` deve ficar órfão.
 
 ## 5. Instruções para o Agente de IA (Protocolos)
 
