@@ -70,7 +70,9 @@ Para manter a consistência e a qualidade do projeto, seguimos as convenções a
 -   **Formato:** `<tipo>(<escopo>): <descrição>`
     -   **Exemplo:** `feat(bar): adiciona validação de formulário`
     -   **Exemplo:** `fix(display): corrige quebra de layout em telas menores`
--   **Regra:** O título do commit (`<descrição>`) deve ser escrito em letras minúsculas.
+-   **Regras:**
+    -   O título do commit (`<descrição>`) deve ser escrito em letras minúsculas.
+    -   A soma do título e do corpo do commit não deve exceder 100 caracteres.
 
 ### Arquitetura
 
