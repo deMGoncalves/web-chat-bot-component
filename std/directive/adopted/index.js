@@ -3,4 +3,4 @@
  * @module @std/directive/adopted
  */
 
-export { adopted } from "./directive.js";
+export { adopted } from "./adopted";

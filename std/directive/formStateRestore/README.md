@@ -2,20 +2,20 @@
 
 O decorator `@formStateRestore` anexa um método ao ciclo de vida `formStateRestoreCallback` de um web component.
 
-## Instalação
+## Importação
 
-```bash
-bun add @std/directive
+```javascript
+import { formStateRestore } from '@std/directive/formStateRestore'
 ```
 
 ## Uso
 
 ```javascript
-import { formStateRestore } from '@std/directive/formStateRestore'
+import { formStateRestore } from '@std/directive'
 
 class MyComponent extends HTMLElement {
   @formStateRestore
-  formStateRestoreCallback(state, mode) {
+  onFormStateRestore(state, mode) {
     // Lógica a ser executada quando o estado do formulário é restaurado.
   }
 }

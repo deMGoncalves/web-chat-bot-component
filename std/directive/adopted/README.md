@@ -2,20 +2,20 @@
 
 O decorator `@adopted` anexa um método ao ciclo de vida `adoptedCallback` de um web component.
 
-## Instalação
+## Importação
 
-```bash
-bun add @std/directive
+```javascript
+import { adopted } from '@std/directive/adopted'
 ```
 
 ## Uso
 
 ```javascript
-import { adopted } from '@std/directive/adopted'
+import { adopted } from '@std/directive'
 
-@adopted
 class MyComponent extends HTMLElement {
-  adoptedCallback() {
+  @adopted
+  onAdopted() {
     // Lógica a ser executada quando o componente é movido para um novo documento.
   }
 }

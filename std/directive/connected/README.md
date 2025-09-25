@@ -2,20 +2,20 @@
 
 O decorator `@connected` anexa um método ao ciclo de vida `connectedCallback` de um web component.
 
-## Instalação
+## Importação
 
-```bash
-bun add @std/directive
+```javascript
+import { connected } from '@std/directive/connected'
 ```
 
 ## Uso
 
 ```javascript
-import { connected } from '@std/directive/connected'
+import { connected } from '@std/directive'
 
-@connected
 class MyComponent extends HTMLElement {
-  connectedCallback() {
+  @connected
+  onConnected() {
     // Lógica a ser executada quando o componente é inserido no DOM.
   }
 }
