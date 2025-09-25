@@ -64,5 +64,6 @@ export class WebLLM {
     WebLLM.#engine = CreateMLCEngine(modelName, {
       appConfig,
     });
+    return WebLLM;
   }
 }
