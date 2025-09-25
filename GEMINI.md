@@ -117,17 +117,41 @@ Para manter a legibilidade e a previsibilidade do código, as classes devem segu
 - **Ação:** O agente DEVE usar a ferramenta `read_file` para ler o conteúdo do arquivo referenciado.
 - **Comportamento:** O conteúdo do arquivo lido deve ser tratado como se fizesse parte do documento de contexto original, para fins de entendimento e resposta. O agente não deve mostrar o conteúdo do arquivo para o usuário, a menos que seja solicitado.
 
-### <PROTOCOL:EXPLAIN>;
+### <PROTOCOL:EXPLAIN>
 
-(Instruções de como a IA deve explicar códigos ou conceitos.)
+- **Gatilho:** Quando o usuário solicitar uma explicação sobre um trecho de código, conceito ou arquitetura do projeto.
+- **Ação:** O agente DEVE analisar o código-fonte e a documentação para fornecer uma explicação clara e concisa.
+- **Comportamento:**
+    1.  **Análise de Contexto:** Antes de responder, o agente deve utilizar as ferramentas (`read_file`, `search_file_content`) para examinar os arquivos relevantes e entender o contexto da pergunta.
+    2.  **Linguagem Ubíqua:** A explicação deve, obrigatoriamente, utilizar a linguagem ubíqua do projeto (ex: Web Component, Dataflow, AOP, `@paint`, `@on.click`).
+    3.  **Foco na Arquitetura:** As explicações devem conectar o código aos padrões arquitetônicos do projeto (OOP, AOP, HDA).
+    4.  **Clareza e Concisão:** A resposta deve ser direta, evitando jargões desnecessários e focando nos aspectos mais importantes para o entendimento do usuário.
+    5.  **Exemplos Práticos:** Sempre que possível, ilustrar a explicação com exemplos de código curtos e relevantes extraídos do próprio projeto.
 
-### <PROTOCOL:PLAN>;
+### <PROTOCOL:PLAN>
 
-(Instruções de como a IA deve criar planos para tarefas.)
+- **Gatilho:** Antes de iniciar qualquer tarefa que envolva modificação de código (bugs, features, refatoração).
+- **Ação:** O agente DEVE criar um plano de ação detalhado e apresentá-lo ao usuário para aprovação.
+- **Comportamento:**
+    1.  **Fase de Compreensão:** O plano deve começar com uma fase de investigação, utilizando `glob`, `read_file` e `search_file_content` para entender o código existente, as convenções e os arquivos de teste relevantes.
+    2.  **Plano Detalhado:** Apresentar um plano numerado e passo a passo das ações que serão tomadas.
+    3.  **Adesão às Convenções:** O plano deve mencionar explicitamente a adesão às convenções do projeto (estilo de código, arquitetura, estrutura de arquivos).
+    4.  **Estratégia de Verificação:** O plano DEVE incluir uma etapa de verificação, como a execução de testes (`bun test`) e linting (`bunx @biomejs/biome check --write .`).
+    5.  **Aprovação do Usuário:** O agente deve aguardar a aprovação explícita do usuário antes de prosseguir para a fase de implementação.
 
-### <PROTOCOL:IMPLEMENT>;
+### <PROTOCOL:IMPLEMENT>
 
-(Instruções de como a IA deve implementar mudanças no código.)
+- **Gatilho:** Após o usuário aprovar um plano de ação.
+- **Ação:** O agente DEVE executar o plano utilizando as ferramentas disponíveis para modificar o código.
+- **Comportamento:**
+    1.  **Execução Fiel:** O agente deve seguir estritamente os passos definidos no plano aprovado.
+    2.  **Uso Preciso das Ferramentas:**
+        -   Para modificações, usar `replace` com contexto suficiente (pelo menos 3 linhas antes e depois) para garantir a precisão.
+        -   Para novos arquivos, usar `write_file`.
+        -   Sempre usar caminhos absolutos para os arquivos.
+    3.  **Atomicidade:** As alterações devem ser feitas em passos pequenos e atômicos, conforme definido no plano.
+    4.  **Verificação Pós-Implementação:** Após a modificação, o agente deve executar os comandos de verificação (testes, linter) definidos no plano.
+    5.  **Protocolo de Micro-Commit:** Após cada modificação de arquivo bem-sucedida e verificada, o agente DEVE seguir o `<PROTOCOL:MICRO_COMMIT>`.
 
 ### <PROTOCOL:MICRO_COMMIT>
 
