@@ -5,7 +5,7 @@ O decorator `@connected` anexa um método ao ciclo de vida `connectedCallback` d
 ## Importação
 
 ```javascript
-import { connected } from '@std/directive/connected'
+import { connected } from '@std/directive'
 ```
 
 ## Uso
@@ -20,3 +20,7 @@ class MyComponent extends HTMLElement {
   }
 }
 ```
+
+## Comportamento (Detalhes da Modificação)
+
+Este decorator modifica o `connectedCallback` do Web Component, garantindo que o método decorado seja executado após a chamada original do `connectedCallback`. Ele permite que a lógica específica do componente seja executada no momento em que o componente é inserido no DOM.

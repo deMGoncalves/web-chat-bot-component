@@ -5,7 +5,7 @@ O decorator `@formDisabled` anexa um método ao ciclo de vida `formDisabledCallb
 ## Importação
 
 ```javascript
-import { formDisabled } from '@std/directive/formDisabled'
+import { formDisabled } from '@std/directive'
 ```
 
 ## Uso
@@ -20,3 +20,7 @@ class MyComponent extends HTMLElement {
   }
 }
 ```
+
+## Comportamento (Detalhes da Modificação)
+
+Este decorator modifica o `formDisabledCallback` do Web Component, garantindo que o método decorado seja executado após a chamada original do `formDisabledCallback`. Ele permite que a lógica específica do componente seja executada quando o estado de desabilitado do formulário muda.

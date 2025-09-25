@@ -5,7 +5,7 @@ O decorator `@attributeChanged` observa mudanças em um atributo e atualiza uma 
 ## Importação
 
 ```javascript
-import { attributeChanged } from '@std/directive/attributeChanged'
+import { attributeChanged } from '@std/directive'
 ```
 
 ## Uso
@@ -18,3 +18,12 @@ class MyComponent extends HTMLElement {
   myProperty
 }
 ```
+
+## Parâmetros do Decorator
+
+-   `attribute` (`{string}`): O nome do atributo HTML a ser observado.
+-   `...filters` (`{...Function}`, opcional): Uma ou mais funções que serão aplicadas sequencialmente ao novo valor do atributo antes de atribuí-lo à propriedade.
+
+## Comportamento (Detalhes da Modificação)
+
+Este decorator configura o `observedAttributes` da classe para incluir o atributo especificado. Ele também intercepta o `attributeChangedCallback` do Web Component para que, quando o atributo observado mudar, o novo valor seja processado pelas funções de filtro (se houver) e então atribuído à propriedade decorada.

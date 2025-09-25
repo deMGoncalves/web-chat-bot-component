@@ -5,7 +5,7 @@ O decorator `@formAssociated` anexa um método ao ciclo de vida `formAssociatedC
 ## Importação
 
 ```javascript
-import { formAssociated } from '@std/directive/formAssociated'
+import { formAssociated } from '@std/directive'
 ```
 
 ## Uso
@@ -20,3 +20,7 @@ class MyComponent extends HTMLElement {
   }
 }
 ```
+
+## Comportamento (Detalhes da Modificação)
+
+Este decorator modifica o `formAssociatedCallback` do Web Component, garantindo que o método decorado seja executado após a chamada original do `formAssociatedCallback`. Ele permite que a lógica específica do componente seja executada quando o componente é associado a um formulário.
