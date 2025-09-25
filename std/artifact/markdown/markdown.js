@@ -1,7 +1,7 @@
 /**
  * @fileoverview
- * Provides a static class `Markdown` for converting Markdown text to HTML using the `showdown` library.
- * This module is pre-configured with specific options suitable for the project.
+ * Fornece uma classe estática `Markdown` para converter texto Markdown em HTML usando a biblioteca `showdown`.
+ * Este módulo é pré-configurado com opções específicas adequadas para o projeto.
  *
  * @module @std/artifact/markdown
  */
@@ -9,14 +9,14 @@
 import showdown from "showdown";
 
 /**
- * A utility class for rendering Markdown text to HTML.
- * It uses a single, pre-configured instance of the `showdown` converter.
+ * Uma classe utilitária para renderizar texto Markdown em HTML.
+ * Utiliza uma única instância pré-configurada do conversor `showdown`.
  *
  * @class Markdown
  */
-class Markdown {
+export class Markdown {
   /**
-   * The private `showdown` converter instance.
+   * A instância privada do conversor `showdown`.
    *
    * @static
    * @private
@@ -25,18 +25,18 @@ class Markdown {
   static #converter;
 
   /**
-   * Renders a Markdown string into HTML.
+   * Renderiza uma string Markdown em HTML.
    *
    * @static
-   * @param {string} [text=""] - The Markdown text to convert.
-   * @returns {string} The resulting HTML string.
+   * @param {string} [text=""] - O texto Markdown a ser convertido.
+   * @returns {string} A string HTML resultante.
    */
   static render(text = "") {
     return Markdown.#converter.makeHtml(text);
   }
 
   /**
-   * Initializes the static `showdown` converter with project-specific options.
+   * Inicializa o conversor estático `showdown` com as opções específicas do projeto.
    *
    * @static
    * @private
@@ -50,8 +50,7 @@ class Markdown {
       sanitize: true,
       openLinksInNewWindow: true,
     });
+
     Markdown.#converter = converter;
   }
 }
-
-export default Markdown;
