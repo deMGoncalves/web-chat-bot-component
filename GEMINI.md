@@ -161,6 +161,10 @@ Para garantir funções simples e de responsabilidade única, a complexidade de 
 -   **Importação de Módulos JavaScript/TypeScript:** Ao importar módulos JavaScript ou TypeScript, a extensão do arquivo NÃO DEVE ser incluída. O sistema de módulos resolverá a extensão automaticamente.
     -   *Exemplo:* `import { meuModulo } from './meuModulo'` (correto)
     -   *Exemplo:* `import { meuModulo } from './meuModulo.js'` (incorreto)
+-   **Uso de Aliases para Importação:** Imports NÃO DEVEM subir níveis de diretório (`../path/to/`). Em vez disso, DEVE-SE usar aliases que começam de um contexto raiz (ex: `@std/`).
+    -   *Exemplo:* `import { execute } from '@std/directive/execute'` (correto)
+    -   *Exemplo:* `import { execute } from '../execute'` (incorreto)
+-   **Co-localização de Módulos/Componentes:** Arquivos que trabalham juntos (módulo/componente, seu `index.js`, `README.md` e testes) DEVEM permanecer juntos em uma mesma pasta.
 
 ## 5. Instruções para o Agente de IA (Protocolos)
 
