@@ -3,9 +3,9 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "std/*": ["std/*"],
-      "chat/*": ["chat/*"],
-      "site/*": ["site/*"]
+      "@std/*": ["std/*"],
+      "@chat/*": ["chat/*"],
+      "@site/*": ["site/*"]
     }
   }
 }

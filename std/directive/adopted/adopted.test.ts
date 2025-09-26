@@ -1,14 +1,21 @@
+import { describe, expect, it, vi } from "vitest";
 import { adopted } from "./adopted";
 
 describe("adopted", () => {
-  it("deve anexar um método ao ciclo de vida adoptedCallback", () => {
-    const target = {
-      adoptedCallback: jest.fn(),
-    };
-    const method = jest.fn();
-    adopted(target, "myMethod");
-    target.myMethod = method;
-    target.adoptedCallback();
-    expect(method).toHaveBeenCalled();
+  it("deve executar o método decorado quando adoptedCallback é chamado", () => {
+    class MyElement {
+      constructor() {
+        this.onAdopted = vi.fn();
+      }
+
+      @adopted
+      onAdopted() {
+        // This will be replaced by the jest.fn() in the constructor
+      }
+    }
+
+    const element = new MyElement();
+    element.adoptedCallback();
+    expect(element.onAdopted).toHaveBeenCalled();
   });
 });

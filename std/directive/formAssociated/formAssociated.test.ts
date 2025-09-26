@@ -1,14 +1,21 @@
+import { describe, expect, it, vi } from "vitest";
 import { formAssociated } from "./formAssociated";
 
 describe("formAssociated", () => {
-  it("deve anexar um método ao ciclo de vida formAssociatedCallback", () => {
-    const target = {
-      formAssociatedCallback: jest.fn(),
-    };
-    const method = jest.fn();
-    formAssociated(target, "myMethod");
-    target.myMethod = method;
-    target.formAssociatedCallback();
-    expect(method).toHaveBeenCalled();
+  it("deve executar o método decorado quando formAssociatedCallback é chamado", () => {
+    class MyElement {
+      constructor() {
+        this.onFormAssociated = vi.fn();
+      }
+
+      @formAssociated
+      onFormAssociated() {
+        // This will be replaced by the vi.fn() in the constructor
+      }
+    }
+
+    const element = new MyElement();
+    element.formAssociatedCallback();
+    expect(element.onFormAssociated).toHaveBeenCalled();
   });
 });

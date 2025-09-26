@@ -1,14 +1,21 @@
+import { describe, expect, it, vi } from "vitest";
 import { disconnected } from "./disconnected";
 
 describe("disconnected", () => {
-  it("deve anexar um método ao ciclo de vida disconnectedCallback", () => {
-    const target = {
-      disconnectedCallback: jest.fn(),
-    };
-    const method = jest.fn();
-    disconnected(target, "myMethod");
-    target.myMethod = method;
-    target.disconnectedCallback();
-    expect(method).toHaveBeenCalled();
+  it("deve executar o método decorado quando disconnectedCallback é chamado", () => {
+    class MyElement {
+      constructor() {
+        this.onDisconnected = vi.fn();
+      }
+
+      @disconnected
+      onDisconnected() {
+        // This will be replaced by the vi.fn() in the constructor
+      }
+    }
+
+    const element = new MyElement();
+    element.disconnectedCallback();
+    expect(element.onDisconnected).toHaveBeenCalled();
   });
 });

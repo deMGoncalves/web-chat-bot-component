@@ -4,9 +4,9 @@ import { defineConfig } from "vite";
 export default defineConfig({
   resolve: {
     alias: {
-      chat: resolve(__dirname, "chat"),
-      site: resolve(__dirname, "site"),
-      std: resolve(__dirname, "std"),
+      "@chat": resolve(__dirname, "chat"),
+      "@site": resolve(__dirname, "site"),
+      "@std": resolve(__dirname, "std"),
     },
   },
   test: {

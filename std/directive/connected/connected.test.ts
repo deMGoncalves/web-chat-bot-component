@@ -1,14 +1,21 @@
+import { describe, expect, it, vi } from "vitest";
 import { connected } from "./connected";
 
 describe("connected", () => {
-  it("deve anexar um método ao ciclo de vida connectedCallback", () => {
-    const target = {
-      connectedCallback: jest.fn(),
-    };
-    const method = jest.fn();
-    connected(target, "myMethod");
-    target.myMethod = method;
-    target.connectedCallback();
-    expect(method).toHaveBeenCalled();
+  it("deve executar o método decorado quando connectedCallback é chamado", () => {
+    class MyElement {
+      constructor() {
+        this.onConnected = vi.fn();
+      }
+
+      @connected
+      onConnected() {
+        // This will be replaced by the vi.fn() in the constructor
+      }
+    }
+
+    const element = new MyElement();
+    element.connectedCallback();
+    expect(element.onConnected).toHaveBeenCalled();
   });
 });

@@ -1,14 +1,21 @@
+import { describe, expect, it, vi } from "vitest";
 import { formReset } from "./formReset";
 
 describe("formReset", () => {
-  it("deve anexar um método ao ciclo de vida formResetCallback", () => {
-    const target = {
-      formResetCallback: jest.fn(),
-    };
-    const method = jest.fn();
-    formReset(target, "myMethod");
-    target.myMethod = method;
-    target.formResetCallback();
-    expect(method).toHaveBeenCalled();
+  it("deve executar o método decorado quando formResetCallback é chamado", () => {
+    class MyElement {
+      constructor() {
+        this.onFormReset = vi.fn();
+      }
+
+      @formReset
+      onFormReset() {
+        // This will be replaced by the vi.fn() in the constructor
+      }
+    }
+
+    const element = new MyElement();
+    element.formResetCallback();
+    expect(element.onFormReset).toHaveBeenCalled();
   });
 });

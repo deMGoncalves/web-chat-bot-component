@@ -4,12 +4,12 @@
  */
 
 /**
- * Observa mudanças em um atributo e atualiza uma propriedade da classe com o novo valor,
- * opcionalmente aplicando uma sequência de funções de filtro.
+ * Observa mudanças em um atributo e atualiza uma propriedade (ou invoca um setter)
+ * da classe com o novo valor, opcionalmente aplicando uma sequência de funções de filtro.
  *
  * @param {string} attribute - O nome do atributo a ser observado.
  * @param {...Function} filters - Uma sequência de funções para processar o valor do atributo.
- * @returns {Function} - Um decorador que pode ser aplicado a uma propriedade de classe.
+ * @returns {Function} - Um decorador que pode ser aplicado a uma propriedade ou setter de classe.
  */
 const attributeChanged =
   (attribute, ...filters) =>
