@@ -117,6 +117,11 @@ Todo o código (`.js`, `.ts`) DEVE ser documentado com JSDoc para classes, méto
 
 Cada arquivo (`.js` ou `.ts`) DEVE definir apenas uma única unidade construtiva (uma classe OU uma função). Múltiplas classes, múltiplas funções ou combinações não são permitidas no mesmo arquivo, promovendo responsabilidade única, alta coesão e baixo acoplamento.
 
+### L. Convenções de Web Components e Ciclo de Vida
+
+1.  **Uso Mandatório de Decorators para Ciclo de Vida:** A construção de qualquer Web Component DEVE utilizar exclusivamente os decorators fornecidos pelo módulo `@std/directive` para gerenciar seus callbacks de ciclo de vida (e.g., `connectedCallback`, `adoptedCallback`, `attributeChangedCallback`).
+2.  **Proibição de Callbacks Nativos Diretos:** É estritamente proibido implementar diretamente os métodos de callback nativos do ciclo de vida dos Web Components. A preferência DEVE ser sempre pelos decorators correspondentes, que encapsulam e padronizam essa funcionalidade, promovendo um código mais limpo e declarativo.
+
 ## V. Convenções de Testes
 
 ### A. Filosofia de Testes
