@@ -1,7 +1,7 @@
-import { Markdown } from "std/artifact";
-import { define } from "std/directive";
-import { paint } from "std/dom";
-import { Reveal } from "std/mixin";
+import { Markdown } from "@std/artifact";
+import { define } from "@std/directive";
+import { paint } from "@std/dom";
+import { Reveal } from "@std/mixin";
 import { component } from "./component";
 import { style } from "./style";
 

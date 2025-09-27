@@ -1,4 +1,4 @@
-import { css } from "std/dom";
+import { css } from "@std/dom";
 
 export const style = () => {
   return css`

@@ -1,5 +1,5 @@
-import { define } from "std/directive";
-import { paint } from "std/dom";
+import { define } from "@std/directive";
+import { paint } from "@std/dom";
 import { component } from "./component";
 import { style } from "./style";
 

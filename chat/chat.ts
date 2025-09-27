@@ -1,9 +1,9 @@
-import { attributeChanged, define } from "std/directive";
-import { paint, retouch } from "std/dom";
-import Echo from "std/echo";
-import on from "std/event";
-import logger from "std/logger";
-import { after, before } from "std/middleware";
+import { attributeChanged, define } from "@std/directive";
+import { paint, retouch } from "@std/dom";
+import Echo from "@std/echo";
+import on from "@std/event";
+import logger from "@std/logger";
+import { after, before } from "@std/middleware";
 import { component } from "./component";
 import { activate, deactivate, notify } from "./interfaces";
 import { status } from "./status";

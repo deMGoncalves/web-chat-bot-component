@@ -150,9 +150,9 @@ Os protocolos a seguir governam o comportamento do agente de IA ao interagir com
 
 ### C. <PROTOCOL:PLAN>
 
--   **Gatilho:** Início de qualquer tarefa de modificação de código.
--   **Ação:** O agente DEVE criar e apresentar um plano de ação detalhado ao usuário para aprovação.
--   **Comportamento:** O plano DEVE ser numerado, passo a passo, mencionar a adesão às convenções, incluir estratégia de verificação (testes, linting) e aguardar aprovação explícita.
+-   **Gatilho:** Início de qualquer tarefa que envolva modificação de código (bugs, features, refatoração) ou que demande uma sequência de ações.
+-   **Ação:** O agente DEVE criar e apresentar um plano de ação detalhado e numerado ao usuário para análise e aprovação explícita.
+-   **Comportamento:** O plano DEVE ser claro, conciso e passo a passo, detalhando as etapas a serem executadas. Ele DEVE mencionar explicitamente a adesão às convenções do projeto e incluir uma estratégia de verificação (e.g., execução de testes, linting). A aprovação do usuário é MANDATÓRIA antes de qualquer execução.
 
 ### D. <PROTOCOL:IMPLEMENT>
 

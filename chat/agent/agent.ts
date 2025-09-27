@@ -1,8 +1,8 @@
-import Pipe from "chat/pipe";
-import { define } from "std/directive";
-import Echo from "std/echo";
-import logger from "std/logger";
-import { Headless } from "std/mixin";
+import Pipe from "@chat/pipe";
+import { define } from "@std/directive";
+import Echo from "@std/echo";
+import logger from "@std/logger";
+import { Headless } from "@std/mixin";
 import AI from "./ai";
 import { ignite } from "./interfaces";
 

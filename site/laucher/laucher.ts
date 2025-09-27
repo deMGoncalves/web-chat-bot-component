@@ -1,7 +1,7 @@
-import { define } from "std/directive";
-import { paint } from "std/dom";
-import Echo from "std/echo";
-import on from "std/event";
+import { define } from "@std/directive";
+import { paint } from "@std/dom";
+import Echo from "@std/echo";
+import on from "@std/event";
 import { component } from "./component";
 import { style } from "./style";
 

@@ -1,6 +1,6 @@
-import "std/polyfill";
-import "std/pixel";
-import "chat";
-import "site";
+import "@std/polyfill";
+import "@std/pixel";
+import "@chat";
+import "@site";
 
-export { Pipe } from "chat";
+export { Pipe } from "@chat";

@@ -1,6 +1,6 @@
-import { define } from "std/directive";
-import { didPaint, paint } from "std/dom";
-import on from "std/event";
+import { define } from "@std/directive";
+import { didPaint, paint } from "@std/dom";
+import on from "@std/event";
 import { component } from "./component";
 import { change, focus, resize, send } from "./interfaces";
 import { style } from "./style";

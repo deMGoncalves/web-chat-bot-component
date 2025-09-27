@@ -1,8 +1,8 @@
-import { attributeChanged, define } from "std/directive";
-import { paint, retouch } from "std/dom";
-import Echo from "std/echo";
-import logger from "std/logger";
-import { truthy } from "std/spark";
+import { attributeChanged, define } from "@std/directive";
+import { paint, retouch } from "@std/dom";
+import Echo from "@std/echo";
+import logger from "@std/logger";
+import { truthy } from "@std/spark";
 import { component } from "./component";
 import { style } from "./style";
 import Tools from "./tools";

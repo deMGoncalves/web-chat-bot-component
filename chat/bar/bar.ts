@@ -1,10 +1,10 @@
-import Pipe from "chat/pipe";
-import { attributeChanged, define } from "std/directive";
-import { paint, repaint, retouch } from "std/dom";
-import Echo from "std/echo";
-import on from "std/event";
-import logger from "std/logger";
-import { truthy } from "std/spark";
+import Pipe from "@chat/pipe";
+import { attributeChanged, define } from "@std/directive";
+import { paint, repaint, retouch } from "@std/dom";
+import Echo from "@std/echo";
+import on from "@std/event";
+import logger from "@std/logger";
+import { truthy } from "@std/spark";
 import { component } from "./component";
 import { formData } from "./formData";
 import { ignite, sent } from "./interfaces";

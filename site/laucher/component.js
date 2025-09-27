@@ -1,4 +1,4 @@
-import { html } from "std/dom";
+import { html } from "@std/dom";
 
 export const component = () =>
   html`
