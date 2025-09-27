@@ -1,4 +1,4 @@
-import * as spark from "std/spark";
+import * as spark from "@std/spark";
 import { connectArc, disconnectArc, on } from "./interfaces";
 import target from "./target";
 

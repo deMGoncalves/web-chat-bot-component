@@ -1,4 +1,4 @@
-import { connected } from "std/directive";
+import { connected } from "@std/directive";
 import { hideable } from "./interfaces";
 
 export const Headless = (Super) => {

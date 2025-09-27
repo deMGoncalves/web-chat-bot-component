@@ -1,4 +1,4 @@
-import { didPaint } from "std/dom";
+import { didPaint } from "@std/dom";
 import { revealable } from "./interfaces";
 
 export const Reveal = (Super) => {
