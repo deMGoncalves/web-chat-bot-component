@@ -4,6 +4,7 @@ import Echo from "@std/echo";
 import logger from "@std/logger";
 import { Headless } from "@std/mixin";
 import AI from "./ai";
+import Events from "./events";
 import { ignite } from "./interfaces";
 
 @define("chat-agent")
@@ -19,7 +20,7 @@ class Agent extends Headless(Echo(HTMLElement)) {
   async ask(token) {
     {
       const init = { bubbles: true, cancelable: true, detail: token };
-      const event = new CustomEvent("thinking", init);
+      const event = new CustomEvent(Events.THINKING, init);
       this.dispatchEvent(event);
     }
 
@@ -29,7 +30,7 @@ class Agent extends Headless(Echo(HTMLElement)) {
     {
       const detail = { ...processed, author: "bot" };
       const init = { bubbles: true, cancelable: true, detail };
-      const event = new CustomEvent("responded", init);
+      const event = new CustomEvent(Events.RESPONDED, init);
       this.dispatchEvent(event);
     }
 
